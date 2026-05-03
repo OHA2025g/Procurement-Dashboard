@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 214 54% 13%;
+        --card: 0 0% 100%;
+        --card-foreground: 214 54% 13%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 214 54% 13%;
+        --primary: 214 69% 14%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 217 40% 96%;
+        --secondary-foreground: 214 54% 13%;
+        --muted: 217 40% 96%;
+        --muted-foreground: 215 20% 43%;
+        --accent: 42 85% 49%;
+        --accent-foreground: 0 0% 100%;
+        --destructive: 5 68% 46%;
+        --destructive-foreground: 0 0% 100%;
+        --border: 218 39% 86%;
+        --input: 218 39% 86%;
+        --ring: 214 69% 14%;
+        --radius: 0.25rem;
+    }
+}
+
+html,
+body,
+#root {
+    min-height: 100vh;
+}
+
+body {
+    margin: 0;
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    background: #f4f6fa;
+    color: #132e55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.font-heading {
+    font-family: "Playfair Display", Georgia, serif;
+    letter-spacing: -0.01em;
+}
+
+.font-data {
+    font-family: "IBM Plex Mono", monospace;
+    font-feature-settings: "tnum" 1;
+}
+
+/* Government grain overlay for login */
+.gov-grain {
+    background-image:
+        radial-gradient(
+            circle at 1px 1px,
+            rgba(255, 255, 255, 0.03) 1px,
+            transparent 0
+        ),
+        linear-gradient(135deg, #0b1f3a 0%, #132e55 55%, #0b1f3a 100%);
+    background-size:
+        3px 3px,
+        100% 100%;
+}
+
+/* Stat number style */
+.stat-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f4f6fa;
+}
+::-webkit-scrollbar-thumb {
+    background: #c8d1e3;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #9baac6;
+}
+
+/* Row conditional colors */
+.row-critical {
+    background-color: rgba(192, 57, 43, 0.06);
+    border-left: 3px solid #c0392b;
+}
+.row-high {
+    background-color: rgba(214, 137, 16, 0.06);
+    border-left: 3px solid #d68910;
+}
+.row-medium {
+    background-color: rgba(13, 142, 116, 0.04);
+    border-left: 3px solid #0d8e74;
+}
+.row-low {
+    border-left: 3px solid transparent;
+}
+
+/* Gold accent */
+.gold-underline {
+    position: relative;
+}
+.gold-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 36px;
+    height: 3px;
+    background: #d4a024;
+}
+
+/* Loading shimmer */
+.shimmer {
+    background: linear-gradient(
+        90deg,
+        #f4f6fa 0%,
+        #eef1f8 50%,
+        #f4f6fa 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 1.6s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -500px 0;
+    }
+    100% {
+        background-position: 500px 0;
+    }
+}
+
+/* Filter pill */
+.filter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #0b1f3a;
+    color: #fff;
+    font-size: 11px;
+    font-family: "IBM Plex Mono", monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* Sidebar link active indicator */
+.sidebar-link-active {
+    background: linear-gradient(
+        90deg,
+        rgba(212, 160, 36, 0.14) 0%,
+        rgba(212, 160, 36, 0) 80%
+    );
+    border-left: 3px solid #d4a024;
+}
+
+/* Heatmap cell */
+.heatmap-cell {
+    transition: transform 0.15s ease;
+}
+.heatmap-cell:hover {
+    transform: scale(1.04);
+    z-index: 10;
+}

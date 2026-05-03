@@ -1,0 +1,16 @@
+import React from "react";
+import Layout from "@/components/Layout";
+import { Link } from "react-router-dom";
+
+export default function DepartmentAccountability() {
+  return (
+    <Layout title="Department accountability" subtitle="Scorecards by department" page="department_accountability" showExport={false}>
+      <div className="bg-white border border-gov-border rounded-sm shadow-card p-6 max-w-3xl">
+        <p className="text-[13px] text-gov-navy-mid leading-relaxed">
+          Department roll-ups are available from filters on the main dashboards. Open{" "}
+          <Link className="text-gov-gold font-semibold underline" to="/">Executive</Link> and apply a department filter, or use drill-down from KPI cards.
+        </p>
+      </div>
+    </Layout>
+  );
+}
