@@ -1,6 +1,14 @@
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_BACKEND_URL;
+/** EasyPanel / Docker: set REACT_APP_BACKEND_URL on the frontend container; entrypoint writes public/runtime-env.js */
+function getBackendBaseUrl() {
+  if (typeof window !== "undefined" && window.__RUNTIME_CONFIG__?.REACT_APP_BACKEND_URL) {
+    return String(window.__RUNTIME_CONFIG__.REACT_APP_BACKEND_URL).replace(/\/$/, "");
+  }
+  return process.env.REACT_APP_BACKEND_URL;
+}
+
+const BASE_URL = getBackendBaseUrl();
 export const API_BASE = `${BASE_URL}/api`;
 
 export const api = axios.create({ baseURL: API_BASE });
